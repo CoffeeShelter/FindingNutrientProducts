@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.mark">
+
+	<resultMap id="markResult" type="markVO">
+		<result property="id" column="id" />
+        <result property="kind" column="kind" />
+        <result property="country" column="country" />
+        <result property="info" column="info" />
+	</resultMap> 
+
+	<select id="selectAllMark" resultMap="markResult">
+      <![CDATA[
+         select * from mark order by id desc	 	
+      ]]>
+	</select>
+
+</mapper>
