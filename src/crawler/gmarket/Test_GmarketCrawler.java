@@ -1,23 +1,22 @@
 package crawler.gmarket;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 import crawler.Crawler;
+import textminer.gmarket.GmarketTextMiner;
 
 public class Test_GmarketCrawler {
 
 	public static void main(String[] args) {
 		Crawler crawler = new GmarketCrawler();
-		ArrayList<String >urlList = crawler.getProductUrl(2);
+		ArrayList<String>urlList = crawler.getProductUrl(1);
 		
-		int count = 0;
-		for(String list : urlList)
-		{
-			System.out.println(list);
-			count ++;
-			if (count > 10)
-				break;
-		}
+		GmarketTextMiner textMiner = new GmarketTextMiner(urlList.get(0));
+		Vector<String> images = textMiner.getImage();
+		
+		System.out.println(images.get(0));
+		
 	}
 
 }

@@ -24,8 +24,6 @@ public class GmarketCrawler implements Crawler{
 	private ArrayList<String> productsURL = new ArrayList<>();
 	
 	public ArrayList<String> getProductUrl(int page) {
-		String url = "";
-		
 		execute(productsURL, page);
 		
 		return productsURL;
