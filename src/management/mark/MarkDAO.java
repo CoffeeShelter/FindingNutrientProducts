@@ -25,7 +25,7 @@ public class MarkDAO {
 		return sqlMapper;
 	}
 	
-	public List<MarkVO> selectAllMemberList(){
+	public List<MarkVO> selectAllMarkList(){
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
 		List<MarkVO> markList = null;

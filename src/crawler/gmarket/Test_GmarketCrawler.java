@@ -1,7 +1,6 @@
 package crawler.gmarket;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import crawler.Crawler;
 import textminer.gmarket.GmarketTextMiner;
@@ -12,10 +11,11 @@ public class Test_GmarketCrawler {
 		Crawler crawler = new GmarketCrawler();
 		ArrayList<String>urlList = crawler.getProductUrl(1);
 		
-		GmarketTextMiner textMiner = new GmarketTextMiner(urlList.get(0));
-		Vector<String> images = textMiner.getImage();
+		GmarketTextMiner textMiner = new GmarketTextMiner();
 		
-		System.out.println(images.get(0));
+		for(int i = 0; i < urlList.size(); i++) {
+			textMiner.excute(urlList.get(i));
+		}
 		
 	}
 

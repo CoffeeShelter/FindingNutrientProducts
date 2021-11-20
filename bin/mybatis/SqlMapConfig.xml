@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias type="management.mark.MarkVO" alias="markVO" />
+		<typeAlias type="management.product.ProductVO" alias="productVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -23,5 +24,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<mappers>
 		<mapper resource="mybatis/mappers/mark.xml" />
+		<mapper resource="mybatis/mappers/product.xml" />
 	</mappers>
 </configuration>

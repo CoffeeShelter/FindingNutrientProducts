@@ -2,7 +2,7 @@ package management.product;
 
 import java.sql.Date;
 
-public class Product {
+public class ProductVO {
 	private int id;
 	private String name;
 	private String url;

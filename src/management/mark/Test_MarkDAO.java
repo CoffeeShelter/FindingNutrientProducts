@@ -8,7 +8,7 @@ public class Test_MarkDAO {
 		MarkDAO markDAO = new MarkDAO();
 		ArrayList<MarkVO> markList = new ArrayList<>();
 		
-		markList = (ArrayList<MarkVO>) markDAO.selectAllMemberList();
+		markList = (ArrayList<MarkVO>) markDAO.selectAllMarkList();
 		
 		for(MarkVO mark : markList) {
 			System.out.println("[인증 국가] : " + mark.getCountry());

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.product">
+
+	<resultMap id="productResult" type="productVO">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="url" column="url" />
+		<result property="price" column="price" />
+		<result property="image" column="image" />
+		<result property="pdate" column="pdate" />
+	</resultMap> 
+	
+	<!-- 상품 전체 항목 검색 -->
+	<select id="selectAllProduct" resultMap="productResult">
+      <![CDATA[
+         select * from product order by id desc	 	
+      ]]>
+	</select>
+	
+	<!-- 상품 전체 개수 -->
+	<select id="countProduct" resultType="int">
+      <![CDATA[
+         select count(*) from product
+      ]]>
+	</select>
+	
+	<!-- 상품 DB 최대 ID 값 -->
+	<select id="maxProductId" resultType="int">
+      <![CDATA[
+         select max(id) from product
+      ]]>
+	</select>
+	
+	<!-- 상품 이미지 존재 여부 확인 [존재o:1, 존재x:0]-->
+	<select id="inProductByImage" resultType="int" parameterType="String">
+      <![CDATA[
+         select EXISTS (select * from product where image=#{image} limit 1) as success;
+      ]]>
+	</select>
+
+	<!-- 상품 정보 추가-->
+	<select id="insertProduct" parameterType="java.util.Map">
+      <![CDATA[
+         insert into product(id, name, url, price, image, pDate) values(#{id}, #{name}, #{url}, #{price}, #{image}, #{pDate})
+      ]]>
+	</select>	
+
+</mapper>
